@@ -1,40 +1,53 @@
-<body>
 <div class="container">
 	<div class="row main">
-		<div class="panel-heading main-center">
-			<div class=" text-center">
-				<h1 class="title">Register To Poll</h1>
-				<hr />
-			</div>
-		</div>
 		<div class="main-login main-center">
-			<form class="form-horizontal" method="post" action="#">
+			<form class="form-horizontal" (ngSubmit)="onSubmit(user)" [formGroup]="RegistrationForm" novalidate>
 
 				<div class="form-group">
 					<label for="name" class="cols-sm-2 control-label">Your Name</label>
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
+							<input type="text" formControlName="name" name="name" placeholder="Enter your Name" />
+							<div [hidden]="name.valid || username.untouched">
+
+								<div [hidden]="!name.hasError('minlength')">
+									Name can not be shorter than 5 characters.
+								</div>
+								<div [hidden]="!name.hasError('required')">
+									Name is required.
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-
-
 
 				<div class="form-group">
 					<label for="username" class="cols-sm-2 control-label">Username</label>
 					<div class="cols-sm-10">
 						<div class="input-group">
-							<input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
+							<input type="text" formControlName="username" name="username" placeholder="Enter your Username" />
+							<div [hidden]="username.valid || username.untouched">
+
+								<div [hidden]="!username.hasError('minlength')">
+									Username can not be shorter than 5 characters.
+								</div>
+								<div [hidden]="!username.hasError('required')">
+									Username is required.
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="form-group">
 					<label for="role" class="cols-sm-2 control-label">Role</label>
 					<div class="cols-sm-10">
 						<div class="input-group">
-							<input type="text" class="form-control" name="role" id="role" placeholder="Who are You" />
+							<select name="role">
+								<option value="admin">Admin</option>
+								<option value="voter">Voter</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -43,30 +56,27 @@
 					<label for="password" class="cols-sm-2 control-label">Password</label>
 					<div class="cols-sm-10">
 						<div class="input-group">
-
-							<input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
-						</div>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-					<div class="cols-sm-10">
-						<div class="input-group">
-
-							<input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+							<input type="password" formControlName="password" name="password" placeholder="Enter your Password" />
+							<div [hidden]="username.valid || username.untouched">
+								<div [hidden]="!username.hasError('minlength')">
+									Password can not be shorter than 5 characters.
+								</div>
+								<div [hidden]="!username.hasError('required')">
+									Passord is required.
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="form-group main-center ">
-					<button type="button" class="btn btn-success btn-lg login-button">Register</button>
+					<button type="submit" (click)="register()" class="btn btn-success btn-lg login-button" [disabled]="!RegistrationForm.valid">Register</button>
 				</div>
 				<div class="login-register">
-					<a href="index.php">Login</a>
+					<a href="#">Login</a>
 				</div>
+
 			</form>
 		</div>
 	</div>
 </div>
-</body>

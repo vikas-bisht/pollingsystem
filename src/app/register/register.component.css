@@ -1,7 +1,5 @@
-
 @import '~bootstrap/dist/css/bootstrap.min.css';
-body, html{
-	margin:0px;
+body{
      height: 100%;
  	background-repeat: no-repeat;
  	background-color: lightblue;
