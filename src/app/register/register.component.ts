@@ -33,6 +33,8 @@ export class RegisterComponent implements OnInit {
     this._userservice.create(this.user)
       .subscribe(user => this.user = user)
       this._router.navigate(['/login']);
+      console.log(this.user.username)
+     console.log(this.RegistrationForm.value)
     }
     else{
       this.validateFormFields(this.RegistrationForm);
