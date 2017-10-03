@@ -5,6 +5,8 @@ import { Validators, FormBuilder, FormGroup,FormControl } from '@angular/forms';
 
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { AlertService } from '../alert/alert.service';
+import { LoaderService } from '../loader.service';
 import { DisplayErrorComponent } from '../display-error/display-error.component';
 
 @Component({
@@ -15,11 +17,14 @@ import { DisplayErrorComponent } from '../display-error/display-error.component'
 
 export class RegisterComponent implements OnInit {
   user: any = {};
+  loading= false;
   RegistrationForm: FormGroup;
   constructor(
     private _router: Router,
     private _userservice: UserService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _loaderService : LoaderService,
+    private _alertService : AlertService
   ) { }
   ngOnInit() {
     this.RegistrationForm = this._formBuilder.group({
@@ -27,14 +32,21 @@ export class RegisterComponent implements OnInit {
       username: [null, [Validators.required,Validators.minLength]],
       password: [null, [Validators.required,Validators.minLength]]
     });
+    this._loaderService.display(true);
+    this._loaderService.display(false);
   }
   register() {
     if(this.RegistrationForm.valid){
-    this._userservice.create(this.user)
-      .subscribe(user => this.user = user)
-      this._router.navigate(['/login']);
-      console.log(this.user.username)
-     console.log(this.RegistrationForm.value)
+    this._userservice.create(this.RegistrationForm.value)
+      .subscribe(data=>{
+        this._alertService.success('Registration SuccessFull',true);
+        this._router.navigate(['/login']);
+      },
+      error=>{
+        this._alertService.error(error);
+        this.loading = false;
+      });
+
     }
     else{
       this.validateFormFields(this.RegistrationForm);
