@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup,FormControl } from '@angular/forms';
 
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { DisplayErrorComponent } from '../display-error/display-error.component';
 
 @Component({
   selector: 'app-register',
@@ -28,7 +29,34 @@ export class RegisterComponent implements OnInit {
     });
   }
   register() {
+    if(this.RegistrationForm.valid){
     this._userservice.create(this.user)
       .subscribe(user => this.user = user)
+      this._router.navigate(['/login']);
+      console.log(this.user.username)
+     console.log(this.RegistrationForm.value)
+    }
+    else{
+      this.validateFormFields(this.RegistrationForm);
+    }
+  }
+  isFieldValid(field:string){
+    return !this.RegistrationForm.get(field).valid && this.RegistrationForm.get(field).touched;
+  }
+  displayFieldCss(field:string){
+    return{
+      'has-error':this.isFieldValid(field),
+      'has-feedback': this.isFieldValid(field)
+    }
+  }
+  validateFormFields(_formGroup: FormGroup){
+    Object.keys(_formGroup.controls).forEach(field=>{
+      const control = _formGroup.get(field);
+      if(control instanceof FormGroup){
+        control.markAsTouched({onlySelf:true});
+      }else if(control instanceof FormGroup ){
+        this.validateFormFields(control);
+      }
+    })
   }
 }
