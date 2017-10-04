@@ -41,6 +41,7 @@ export class RegisterComponent implements OnInit {
           if (data.error == 1) {
             this.error = data.message;
             alert(this.error);
+            this.RegistrationForm.reset();
           } else {
             alert('Registration SuccessFull');
             this._router.navigate(['/login']);
