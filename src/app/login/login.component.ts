@@ -7,7 +7,6 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { LoaderService } from '../loader.service';
-import { AlertService } from '../alert/alert.service';
 import { DisplayErrorComponent } from '../display-error/display-error.component';
 
 @Component({
@@ -17,15 +16,15 @@ import { DisplayErrorComponent } from '../display-error/display-error.component'
 })
 
 export class LoginComponent implements OnInit {
-  loading:any;
+  loading: any;
   user: any = {};
+  error: any;
   LoginForm: FormGroup;
   constructor(
     private _router: Router,
     private _userservice: UserService,
     private _formBuilder: FormBuilder,
     private _loaderService: LoaderService,
-    private _alertService: AlertService,
     //    private _loginService: LoginService
   ) { }
   ngOnInit() {
@@ -40,10 +39,14 @@ export class LoginComponent implements OnInit {
     if (this.LoginForm.valid) {
       this._userservice.login(this.LoginForm.get('username').value, this.LoginForm.get('password').value)
         .subscribe(
-        data => { },
+        data => {
+          if (data.error == 1) {
+            alert("User Doesnot Exit");
+          } else {
+            alert('Login SuccessFull');
+          }
+        },
         error => {
-          this._alertService.error(error);
-          this.loading = false;
         }
         )
     }

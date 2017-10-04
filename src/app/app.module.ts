@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './user.service';
 import { LoaderService } from './loader.service';
-import { AlertService } from './alert/alert.service';
 import { DisplayErrorComponent } from './display-error/display-error.component';
 
 @NgModule({
@@ -22,7 +21,7 @@ import { DisplayErrorComponent } from './display-error/display-error.component';
     BrowserModule, ReactiveFormsModule ,FormsModule, AppRoutingModule, HttpModule
   ],
   entryComponents: [ RegisterComponent ],
-  providers: [ AlertService,LoaderService,UserService,{provide: LocationStrategy,useClass:HashLocationStrategy}],
+  providers: [LoaderService,UserService,{provide: LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

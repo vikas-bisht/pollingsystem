@@ -5,10 +5,10 @@
 				<form class="form-horizontal" (ngSubmit)="register()" [formGroup]="RegistrationForm" novalidate>
 
 					<div class="form-group" [ngClass]="displayFieldCss('name')">
-						<label for="name" class="cols-sm-2 control-label required" >Your Name</label>
+						<label for="name" class="cols-sm-2 control-label required">Your Name</label>
 						<div class="cols-sm-10">
-							<div >
-								 <input type="text" class="form-control" formControlName="name" name="name" placeholder="Enter your Name" />
+							<div>
+								<input type="text" class="form-control" formControlName="name" name="name" placeholder="Enter your Name" />
 							</div>
 							<div>
 								<display-error [displayError]="isFieldValid('name')" errorMsg="Please Enter Your Name">
@@ -48,7 +48,7 @@
 							<div class="input-group">
 								<input type="password" class="form-control" formControlName="password" name="password" placeholder="Enter your Password" />
 							</div>
-							<div >
+							<div>
 								<display-error [displayError]="isFieldValid('password')" errorMsg="Please Enter Your Password">
 								</display-error>
 							</div>
@@ -64,7 +64,6 @@
 					</div>
 
 				</form>
-			</div>
 		</div>
 	</div>
 </div>
