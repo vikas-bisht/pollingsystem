@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         .subscribe(
         data => {
           if (data.error == 1) {
-            alert("User Doesnot Exit");
+            alert("User Doesn't Exist");
           } else {
             alert('Login SuccessFull');
           }

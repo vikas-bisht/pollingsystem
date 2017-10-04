@@ -8,7 +8,10 @@ body{
 }
 
 .main{
- 	margin-top: 70px;
+ 	margin-top: 50px;
+}
+.jumbotron{
+  margin-top: 2%;
 }
 
 h1.title {
@@ -48,8 +51,9 @@ input::-webkit-input-placeholder {
 
 }
 
+
 .main-center{
- 	margin-top: 30px;
+ 	margin-top: 200px;
  	margin: 0 auto;
  	max-width: 330px;
   padding: 40px 40px;
