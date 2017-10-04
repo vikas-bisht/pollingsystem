@@ -6,9 +6,13 @@ body{
  	background-color: lightblue;
  	font-family: 'Oxygen', sans-serif;
 }
+.heading{
+  margin-top:20px;
+}
 
 .main{
- 	margin-top: 50px;
+ 	margin-top: 15px;
+  padding:10% ;
 }
 .jumbotron{
   margin-top: 2%;
@@ -53,13 +57,13 @@ input::-webkit-input-placeholder {
 
 
 .main-center{
- 	margin-top: 200px;
+ 	margin-top: 0px;
  	margin: 0 auto;
  	max-width: 330px;
   padding: 40px 40px;
 }
 
-.login-button{
+.login-button .reset-button{
 	margin-top: 5px;
 }
 
