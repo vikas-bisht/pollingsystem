@@ -16,7 +16,8 @@ import { DisplayErrorComponent } from '../display-error/display-error.component'
 })
 
 export class LoginComponent implements OnInit {
-  loading: any;
+  loading = false;
+  imgpath:string;
   user: any = {};
   error: any;
   LoginForm: FormGroup;
@@ -25,8 +26,9 @@ export class LoginComponent implements OnInit {
     private _userservice: UserService,
     private _formBuilder: FormBuilder,
     private _loaderService: LoaderService,
+
     //    private _loginService: LoginService
-  ) { }
+  ) {this.imgpath='assets/images/Loading_icon.gif' }
   ngOnInit() {
     this.LoginForm = this._formBuilder.group({
       username: [null, [Validators.required, Validators.minLength]],
@@ -36,14 +38,17 @@ export class LoginComponent implements OnInit {
     this._loaderService.displayLoader(false);
   }
   login() {
+    this.loading = true;
     if (this.LoginForm.valid) {
       this._userservice.login(this.LoginForm.get('username').value, this.LoginForm.get('password').value)
         .subscribe(
         data => {
           if (data.error == 1) {
             alert("User Doesn't Exist");
+            this.loading = false;
           } else {
             alert('Login SuccessFull');
+            this.loading = false;
           }
         },
         error => {

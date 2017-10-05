@@ -1,13 +1,13 @@
 <body>
 	<div class="container">
-		<div align="center">
-			<h1 class="heading"><b>Registration Form</b></h1>
-		</div>
+
 		<div class="">
 			<div class="row main">
 				<div class="main-login main-center">
 					<form class="form-horizontal" (ngSubmit)="register()" [formGroup]="RegistrationForm" novalidate>
-
+						<div align="center">
+							<h1 class="heading"><b>Registration Form</b></h1>
+						</div>
 						<div class="form-group" [ngClass]="displayFieldCss('name')">
 							<label for="name" class="cols-sm-2 control-label required">Your Name</label>
 							<div class="cols-sm-10">
@@ -59,8 +59,9 @@
 							</div>
 						</div>
 
-						<div class="form-group main-center ">
-							<button type="submit" class="btn btn-success btn-lg login-button" [disabled]="!RegistrationForm.valid"><b>Register</b></button>
+						<div align="center" class="form-group main-center ">
+							<button type="submit" [disabled]="loading" class="btn btn-success btn-lg login-button" [disabled]="!RegistrationForm.valid"><b>Register</b></button>
+							<img *ngIf="loading" class="loader" src="assets/images/Loading_icon.gif">
 							<button type="reset" class="btn btn-default btn-lg reset-button"><b>Reset</b></button>
 						</div>
 						<div class="login-register">

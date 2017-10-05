@@ -7,11 +7,10 @@ body{
  	font-family: 'Oxygen', sans-serif;
 }
 .heading{
-  margin-top:20px;
+  padding-bottom: 30px;
 }
 
 .main{
- 	margin-top: 15px;
   padding:5% ;
 }
 .jumbotron{
@@ -59,7 +58,7 @@ input::-webkit-input-placeholder {
 .main-center{
  	margin-top: 0px;
  	margin: 0 auto;
- 	max-width: 330px;
+ 	max-width: 430px;
   padding: 40px 40px;
 }
 
@@ -70,4 +69,8 @@ input::-webkit-input-placeholder {
 .login-register{
 	font-size: 11px;
 	text-align: center;
+}
+.loader{
+  width:60px;
+height: auto;
 }

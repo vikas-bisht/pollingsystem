@@ -35,14 +35,17 @@ export class RegisterComponent implements OnInit {
     this._loaderService.displayLoader(false);
   }
   register() {
+    this.loading = true;
     if (this.RegistrationForm.valid) {
       this._userservice.create(this.RegistrationForm.value)
         .subscribe(data => {
           if (data.error == 1) {
             this.error = data.message;
             alert(this.error);
+            this.loading = false;
             this.RegistrationForm.reset();
           } else {
+            this.loading = false;
             alert('Registration SuccessFull');
             this._router.navigate(['/login']);
           }
