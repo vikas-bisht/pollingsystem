@@ -1,5 +1,8 @@
 <div class="container" >
   <router-outlet>
-    <span *ngIf="showLoader" class="loading"></span>
+    <span *ngIf="objLoaderStatus">
+        <ngl-spinner size="large" type="brand" container="true"></ngl-spinner>
+        <progress-bar [value]="50" [max]="100"></progress-bar>
+    </span>
   </router-outlet>
 </div>

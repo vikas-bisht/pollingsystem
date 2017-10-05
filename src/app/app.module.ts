@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {ProgressBarModule} from 'ngx-progress-bar';
+import { NglModule } from 'ng-lightning/ng-lightning';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { HttpModule } from '@angular/http';
@@ -18,7 +20,7 @@ import { DisplayErrorComponent } from './display-error/display-error.component';
     AppComponent,RegisterComponent,LoginComponent,DisplayErrorComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule ,FormsModule, AppRoutingModule, HttpModule
+    ProgressBarModule,NglModule,BrowserModule, ReactiveFormsModule ,FormsModule, AppRoutingModule, HttpModule
   ],
   entryComponents: [ RegisterComponent ],
   providers: [LoaderService,UserService,{provide: LocationStrategy,useClass:HashLocationStrategy}],

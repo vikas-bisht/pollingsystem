@@ -23,6 +23,8 @@
     "@angular/router": "^4.2.4",
     "bootstrap": "^4.0.0-beta",
     "core-js": "^2.4.1",
+    "ng-lightning": "^2.0.1",
+    "ngx-progress-bar": "0.0.10",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoaderService } from './loader.service'
+import { LoaderService } from './loader.service';
+import {ProgressBarModule} from 'ngx-progress-bar';
+import { NglModule } from 'ng-lightning/ng-lightning';
 
 @Component({
   selector: 'pollingsystem',
@@ -7,13 +9,14 @@ import { LoaderService } from './loader.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  showLoader: boolean;
+  objLoaderStatus: boolean;
   constructor(
-      private _loaderService: LoaderService
-  ){}
+      private _loaderService: LoaderService)
+      {this.objLoaderStatus= false}
   ngOnInit(){
-    this._loaderService.status.subscribe((val:boolean)=>{
-      this.showLoader=val;
+    this._loaderService.loaderStatus.subscribe((val:boolean)=>{
+    this.objLoaderStatus=val;
+      console.log(val);
     });
   }
 }

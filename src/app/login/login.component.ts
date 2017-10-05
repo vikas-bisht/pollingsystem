@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
       username: [null, [Validators.required, Validators.minLength]],
       password: [null, [Validators.required, Validators.minLength]]
     });
-    this._loaderService.display(true);
-    this._loaderService.display(false);
+    this._loaderService.displayLoader(true);
+    this._loaderService.displayLoader(false);
   }
   login() {
     if (this.LoginForm.valid) {
