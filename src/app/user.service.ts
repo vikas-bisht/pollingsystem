@@ -13,7 +13,22 @@ export class UserService {
 
   create(user: any) {
     console.log(user)
-    return this._http.get(this._url+`add_user?username=${user.name}&password=${user.password}&role=admin`)
-      .map((res: Response) => res.json());
+    return this._http.get(this._url + `add_user?username=${user.username}&password=${user.password}&role=admin`)
+      .map((res:any) => {
+        return res.json();
+      });
+  }
+  login(username: string, password: string) {
+    return this._http.post(this._url + `login?username=${username}&password=${password}`, JSON.stringify({ username: username, password: password }))
+      .map((response: Response) => {
+        let user = response.json();
+        if (user && user.token) {
+          localStorage.setItem('currentUser', JSON.stringify(user))
+        }
+        return user;
+      });
+  }
+  logout() {
+    localStorage.removeItem('currentUser');
   }
 }

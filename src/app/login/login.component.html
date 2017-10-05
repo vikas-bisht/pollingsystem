@@ -1,43 +1,44 @@
 <body>
   <div class="container">
-    <div class="jumbotron">
-      <div class="col-md-4 col-md-offset-7">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <span class="glyphicon glyphicon-lock"></span> Login</div>
+    <div class="row main">
+      <div class="main-login main-center">
+        <div class="panel panel-defaul">
+          <div class="panel panel-heading">
+            <h3><b> Login</b></h3></div>
           <div class="panel-body">
             <form class="form-horizontal" (ngSubmit)="login()" [formGroup]="LoginForm" novalidate>
 
               <div class="form-group" [ngClass]="displayFieldCss('username')">
                 <div class="col-sm-12 input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                   <input type="text" class="form-control" formControlName="username" name="username" placeholder="Username" required>
                 </div>
                 <div>
-                  <display-error [displayError]="isFieldValid('username')" errorMsg="Please Enter Your UserName">
+                  <display-error [displayError]="isFieldValid('username')" errorMsg="please enter your username">
                   </display-error>
                 </div>
               </div>
               <div class="form-group" [ngClass]="displayFieldCss('password')">
                 <div class="col-sm-12 input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                   <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password" required>
                 </div>
                 <div>
-                  <display-error [displayError]="isFieldValid('password')" errorMsg="Please Enter Your Password">
+                  <display-error [displayError]="isFieldValid('password')" errorMsg="please enter your password">
                   </display-error>
                 </div>
               </div>
               <div class="form-group last">
-                <div class="col-sm-offset-3 col-sm-9">
-                  <button type="submit" class="btn btn-success btn-sm" [disabled]="!LoginForm.valid">Sign in</button>
-                  <button type="reset" class="btn btn-default btn-sm">Reset</button>
+                <div align="center">
+                  <button [disabled]="loading" type="submit" class="btn btn-success btn-sm" [disabled]="!LoginForm.valid"><b>Sign in</b></button>
+                  <img *ngIf="loading" class="loader" src="assets/images/Loading_icon.gif">
+                  <button type="reset" class="btn btn-default btn-sm"><b>Reset</b></button>
                 </div>
               </div>
             </form>
           </div>
           <div class="panel-footer">
-            Not Registred? <a [routerLink]="['/register']">Register here</a></div>
+            Not Registered? <a [routerLink]="['/register']"><b>Register here</b></a></div>
         </div>
       </div>
     </div>
