@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 import { UserService } from '../user.service';
+import { DisplayErrorComponent } from '../display-error/display-error.component';
 
 @Component({
   selector: 'app-create',
@@ -30,14 +31,38 @@ export class CreateComponent implements OnInit {
     });
   }
   create() {
-    console.log(this.PollCreationForm.value)
-    this._userservice.create(this.PollCreationForm.value)
-      .subscribe(data => {
-        if (data.error == 0) {
-          alert("Data Entered Successfully");
-          this._router.navigate(['/home'])
-        }
-      },
-      error => { })
+    if (this.PollCreationForm.valid) {
+      this._userservice.create(this.PollCreationForm.value)
+        .subscribe(data => {
+          if (data.error == 0) {
+            alert("Data Entered Successfully");
+            this._router.navigate(['/home'])
+          }
+        },
+        error => { })
+    }
+    else {
+      this.validateFormFields(this.PollCreationForm)
+    }
   }
+  isFieldValid(field: string) {
+    return !this.PollCreationForm.get(field).valid && this.PollCreationForm.get(field).touched;
+  }
+  displayFieldCss(field: string) {
+    return {
+      'has-error': this.isFieldValid(field),
+      'has-feedback': this.isFieldValid(field)
+    }
+  }
+  validateFormFields(_formGroup: FormGroup) {
+    Object.keys(_formGroup.controls).forEach(field => {
+      const control = _formGroup.get(field);
+      if (control instanceof FormGroup) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateFormFields(control);
+      }
+    })
+  }
+
 }
