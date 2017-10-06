@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.loading = true;
     if (this.RegistrationForm.valid) {
-      this._userservice.create(this.RegistrationForm.value)
+      this._userservice.register(this.RegistrationForm.value)
         .subscribe(data => {
           if (data.error == 1) {
             this.error = data.message;

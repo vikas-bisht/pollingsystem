@@ -1,0 +1,44 @@
+<form class="form-horizontal" (ngSubmit)="create()" [formGroup]="PollCreationForm">
+  <div>
+    <div class="form-group">
+      <label class="control-label">
+      Please Enter the title
+    </label>
+      <input type="text" class="form-control" formControlName="title" required/>
+    </div>
+    <div>
+      <div class="form-group">
+        <label class="control-label col-xs-1 ">a.</label>
+        <div class="col-xs-10">
+          <input type="text" class="form-control" formControlName="option1" required/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-xs-1">b.</label>
+        <div class="col-xs-10">
+          <input type="text" class="form-control" formControlName="option2" required/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-xs-1">c.</label>
+        <div class="col-xs-10">
+          <input type="text" class="form-control" formControlName="option3" required/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-xs-1">d.</label>
+        <div class="col-xs-10">
+          <input type="text" class="form-control" formControlName="option4" required/>
+        </div>
+      </div>
+
+    </div>
+    <div align="center">
+      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="reset" class="btn btn-default">Reset</button>
+    </div>
+  </div>
+</form>

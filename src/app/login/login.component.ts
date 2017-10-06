@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
             this.loading = false;
           } else {
             alert('Login SuccessFull');
+            this._router.navigate(['/home']);
             this.loading = false;
           }
         },

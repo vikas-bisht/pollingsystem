@@ -11,15 +11,22 @@ export class UserService {
   _url: string = constant.url;
   constructor(private _http: Http) { }
 
-  create(user: any) {
+  register(user: any) {
     console.log(user)
     return this._http.get(this._url + `add_user?username=${user.username}&password=${user.password}&role=admin`)
       .map((res:any) => {
         return res.json();
       });
   }
+  create(poll:any){
+    console.log(poll)
+    return this._http.get(this._url + `add_poll?title=${poll.title}&options=+${poll.option1}+'____'+${poll.option2}+'____'+${poll.option3}+'____'${poll.option4}`)
+    .map((res:any)=>{
+      return res.json();
+    })
+  }
   login(username: string, password: string) {
-    return this._http.post(this._url + `login?username=${username}&password=${password}`, JSON.stringify({ username: username, password: password }))
+    return this._http.post(this._url + `login?username=${username}&password=${password}`,JSON.stringify({ username: username, password: password }))
       .map((response: Response) => {
         let user = response.json();
         if (user && user.token) {
