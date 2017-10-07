@@ -55,6 +55,11 @@
         <display-error [displayError]="isFieldValid('option4')" errorMsg="Please Enter Option4">
         </display-error>
       </div>
+      <div class="row form-group">
+        <div class="col-xs-offset-4 col-xs-4">
+          <my-date-picker name="mydate" [options]="myDatePickerOptions" formControlName="myDate"></my-date-picker>
+        </div>
+      </div>
 
     </div>
     <div align="center">

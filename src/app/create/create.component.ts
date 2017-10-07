@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IMyDpOptions } from 'mydatepicker';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 import { UserService } from '../user.service';
@@ -12,6 +13,9 @@ import { DisplayErrorComponent } from '../display-error/display-error.component'
 })
 
 export class CreateComponent implements OnInit {
+  public myDatePickerOptions:IMyDpOptions={
+    dateFormat:'dd.mm.yyyy'
+  };
   PollCreationForm: FormGroup;
   error: any;
   constructor(
@@ -27,7 +31,8 @@ export class CreateComponent implements OnInit {
       option1: [null, [Validators.required, Validators.minLength]],
       option2: [null, [Validators.required, Validators.minLength]],
       option3: [null, [Validators.required, Validators.minLength]],
-      option4: [null, [Validators.required, Validators.minLength]]
+      option4: [null, [Validators.required, Validators.minLength]],
+      myDate:  [null,[Validators.required]]
     });
   }
   create() {
@@ -63,6 +68,11 @@ export class CreateComponent implements OnInit {
         this.validateFormFields(control);
       }
     })
+  }
+
+  setDate():void{
+    let date =new Date();
+    this.PollCreationForm.patchValue({myDate:null})
   }
 
 }
