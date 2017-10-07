@@ -15,6 +15,7 @@ import { TakeComponent } from './take/take.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './user.service';
+import { ViewService } from './view/view.service';
 import { LoaderService } from './loader.service';
 import { DisplayErrorComponent } from './display-error/display-error.component';
 
@@ -26,7 +27,7 @@ import { DisplayErrorComponent } from './display-error/display-error.component';
     ProgressBarModule, NglModule, BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpModule
   ],
   entryComponents: [RegisterComponent],
-  providers: [LoaderService, UserService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [LoaderService,ViewService, UserService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

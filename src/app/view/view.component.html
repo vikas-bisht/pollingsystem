@@ -1,1 +1,13 @@
-view
+<div *ngFor="let data of data">
+
+  <div>
+    <li>
+      <label>{{data.title}}</label>
+      <ul class="list-group">
+        <div *ngFor="let option of data.options">
+          <div class="col-xs-3">{{option.option}}</div>
+        </div>
+      </ul>
+    </li>
+  </div>
+</div>
