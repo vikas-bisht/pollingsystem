@@ -1,0 +1,19 @@
+<div class="container">
+  <div align="center" class="row"><h1>Welcome User</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="nav-header"> Menu</li>
+          <li><a routerLink="create">Create a Poll</a></li>
+          <li><a (click)="view()" routerLink="view">View all polls</a></li>
+          <li><a routerLink="take">Take a Poll</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

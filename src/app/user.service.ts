@@ -11,10 +11,10 @@ export class UserService {
   _url: string = constant.url;
   constructor(private _http: Http) { }
 
-  create(user: any) {
+  register(user: any) {
     console.log(user)
     return this._http.get(this._url + `add_user?username=${user.username}&password=${user.password}&role=admin`)
-      .map((res:any) => {
+      .map((res: any) => {
         return res.json();
       });
   }
@@ -27,6 +27,19 @@ export class UserService {
         }
         return user;
       });
+  }
+  create(poll: any) {
+    console.log(poll)
+    return this._http.get(this._url + `add_poll?title=${poll.title}&options=+${poll.option1}+____+${poll.option2}+____+${poll.option3}+____${poll.option4}`)
+      .map((res: any) => {
+        return res.json();
+      })
+  }
+  view() {
+    return this._http.get(this._url + `list_polls`)
+      .map((res: any) => {
+        return res.json();
+      })
   }
   logout() {
     localStorage.removeItem('currentUser');
