@@ -20,4 +20,7 @@ export class HomeComponent implements OnInit {
   view() {
     this._viewService.view();
   }
+  take(){
+    this._viewService.view();
+  }
 }

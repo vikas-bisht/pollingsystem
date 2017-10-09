@@ -1,13 +1,16 @@
-<div *ngFor="let data of data">
-
-  <div>
-    <li>
-      <label>{{data.title}}</label>
-      <ul class="list-group">
-        <div *ngFor="let option of data.options">
-          <div class="col-xs-3">{{option.option}}</div>
-        </div>
-      </ul>
-    </li>
+<ol type="1">
+  <div *ngFor="let data of data">
+    <div>
+      <li>
+        <label>{{data.title}}</label>
+        <ol type="a" class="list-group list-inline">
+          <div *ngFor="let option of data.options">
+            <li class="list-inline-items">
+              <div class="col-xs-3">{{option.option}}</div>
+            </li>
+          </div>
+        </ol>
+      </li>
+    </div>
   </div>
-</div>
+</ol>

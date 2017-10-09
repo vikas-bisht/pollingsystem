@@ -41,6 +41,12 @@ export class UserService {
         return res.json();
       })
   }
+  vote(id:string,options:string){
+    console.log(id,options)
+    console.log(this._url + `do_vote?id=${id}&option_text=${options}`)
+    return this._http.get(this._url + `do_vote?id=${id}&option_text=${options}`).subscribe(res=>console.log(res),error=>{console.log("error")})
+  }
+
   logout() {
     localStorage.removeItem('currentUser');
   }
