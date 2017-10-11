@@ -1,9 +1,9 @@
 <ol class="view" type="1">
   <div *ngFor="let data of data">
     <div >
-      <li>
+      <li class="listmain">
         <label >{{data.title}}</label>
-        <div style="float:right"><a (click)="delete(data._id)">Delete Poll</a>
+        <div class="deletediv"><a (click)="delete(data._id)">Delete Poll</a>
 </div>
 
         <ol type="a" class="">
