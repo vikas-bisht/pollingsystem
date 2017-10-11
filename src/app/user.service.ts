@@ -46,7 +46,10 @@ export class UserService {
   summary(id:string){
     return this._http.get(this._url+  `list_poll?id=${id}`);
   }
+  delete(id:string){
+    return this._http.get(this._url + `delete_poll?id=${id}`);
 
+  }
 
   logout() {
     localStorage.removeItem('currentUser');
