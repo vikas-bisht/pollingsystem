@@ -19,7 +19,6 @@ export class ViewComponent {
   ngOnInit() {
     this._viewService.view().subscribe(data => {
     this.data = data.data
-      console.log(this.data.data)
     });
   }
 }

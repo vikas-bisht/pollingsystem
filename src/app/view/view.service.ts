@@ -10,6 +10,5 @@ export class ViewService {
   ) { }
   view() {
    return  this._userservice.view();
-
   }
 }

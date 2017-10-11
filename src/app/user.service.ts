@@ -29,7 +29,6 @@ export class UserService {
       });
   }
   create(poll: any) {
-    console.log(poll)
     return this._http.get(this._url + `add_poll?title=${poll.title}&options=+${poll.option1}+____+${poll.option2}+____+${poll.option3}+____${poll.option4}`)
       .map((res: any) => {
         return res.json();
@@ -41,6 +40,14 @@ export class UserService {
         return res.json();
       })
   }
+  vote(id:string,options:string){
+    return this._http.get(this._url + `do_vote?id=${id}&option_text=${options}`).subscribe(res=>console.log(res),error=>{console.log("error")});
+  }
+  summary(id:string){
+    return this._http.get(this._url+  `list_poll?id=${id}`);
+  }
+
+
   logout() {
     localStorage.removeItem('currentUser');
   }

@@ -1,0 +1,27 @@
+<form [formGroup]="voteForm" (ngSubmit)="vote(formData._id)" novalidate>
+
+  <div>
+    <h1>{{formData.title}}</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-4">
+      <div class="radio" *ngFor="let option of formData.options;">
+        <input type="radio" formControlName="options"  value={{option.option}} /> {{option.option}}
+      </div>
+    </div>
+
+    <div class="col-xs-4 vote">
+      <input type="submit" value="vote" [disabled]="!voteForm.valid" class="btn btn-success ">
+    </div>
+    <div class="col-xs-4">
+      <div *ngIf="visible">
+        <div align="center"><b>see what other user thinks</b></div>
+        <div align="center" *ngFor="let option of formData.options">
+          {{option.option}}==> <label>{{option.vote}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -13,6 +13,7 @@ import { CreateComponent } from './create/create.component';
 import { LoginComponent } from './login/login.component';
 import { ViewComponent } from './view/view.component';
 import { TakeComponent } from './take/take.component';
+import { VoteFormComponent } from './take/voteform.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './user.service';
@@ -22,7 +23,7 @@ import { DisplayErrorComponent } from './display-error/display-error.component';
 
 @NgModule({
   declarations: [
-    AppComponent, RegisterComponent, LoginComponent, HomeComponent, CreateComponent,ViewComponent, TakeComponent, DisplayErrorComponent
+    AppComponent, RegisterComponent, LoginComponent, HomeComponent,VoteFormComponent, CreateComponent,ViewComponent, TakeComponent, DisplayErrorComponent
   ],
   imports: [
     MyDatePickerModule,ProgressBarModule, NglModule, BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpModule
