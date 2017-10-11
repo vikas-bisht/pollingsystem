@@ -26,14 +26,14 @@ export class VoteFormComponent implements OnInit {
   }
   vote(id: any, option: any) {
     this._userservice.vote(id, this.voteForm.get('options').value);
-    this._userservice.view();
     setTimeout(()=>{
+      this._userservice.view();
       this._userservice.summary(id).subscribe((data)=>{console.log(data.json())
       this.data=data.json();
       this.formData.options=this.data['data'].options;
     });
       console.log(this._userservice.summary(id));
-    },1000)
+    },500)
 
     this.visible = true;
 

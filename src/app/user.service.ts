@@ -29,7 +29,7 @@ export class UserService {
       });
   }
   create(poll: any) {
-    return this._http.get(this._url + `add_poll?title=${poll.title}&options=+${poll.option1}+____+${poll.option2}+____+${poll.option3}+____${poll.option4}`)
+    return this._http.get(this._url + `add_poll?title=${poll.title}&options=${poll.option1}____${poll.option2}____${poll.option3}____${poll.option4}`)
       .map((res: any) => {
         return res.json();
       })
