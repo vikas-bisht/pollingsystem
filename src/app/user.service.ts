@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { NgForm } from '@angular/forms';
 
 import { User } from './user';
 import { constant } from './constant';
@@ -48,7 +49,9 @@ export class UserService {
   }
   delete(id:string){
     return this._http.get(this._url + `delete_poll?id=${id}`);
-
+  }
+  editTitle(id:any,title:any){
+    return this._http.get(this._url+`update_poll_title?id=${id}&title=${title}`)
   }
 
   logout() {

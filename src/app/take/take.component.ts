@@ -17,14 +17,13 @@ export class TakeComponent {
   constructor(
     private _viewService: ViewService,
     private _formBuilder: FormBuilder,
-    
+
     private _router: Router
   ) {
    }
   ngOnInit() {
     this._viewService.view().subscribe(data => {
       this.data = data.data
-      console.log(this.data)
     })
     this.voteForm = new FormGroup
      ({

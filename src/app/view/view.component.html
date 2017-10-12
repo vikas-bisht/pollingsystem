@@ -1,10 +1,12 @@
 <ol class="view" type="1">
   <div *ngFor="let data of data">
-    <div >
+
+    <div>
       <li class="listmain">
-        <label >{{data.title}}</label>
+        <label>{{data.title}}</label>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#titleModal">Edit title</button>
         <div class="deletediv"><a (click)="delete(data._id)">Delete Poll</a>
-</div>
+        </div>
 
         <ol type="a" class="">
           <div *ngFor="let option of data.options">
@@ -15,5 +17,23 @@
         </ol>
       </li>
     </div>
+    <form (ngSubmit)="editTitle(data._id,editTitleForm)" [formGroup]="editTitleForm" novalidate>
+      <div class="modal fade" id="titleModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Enter New Title</h4>
+            </div>
+            <div class="modal-body">
+              <input class="form-control" type="text" placeholder="Enter Here" formControlName="title" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="editTitle(data._id,editTitleForm)" [disabled]="!editTitleForm.valid" class="btn btn-default" data-dismiss="modal">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </ol>
