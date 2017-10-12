@@ -6,17 +6,17 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-voteForm',
   templateUrl: './voteform.component.html',
-  styleUrls:['./take.component.css']
+  styleUrls: ['./take.component.css']
 })
 
 export class VoteFormComponent implements OnInit {
   @Input() formData: any;
   public visible = false;
   voteForm: FormGroup;
-  data:any;
+  data: any;
   constructor(
     private _userservice: UserService,
-  ){}
+  ) { }
   ngOnInit() {
     this.voteForm = new FormGroup
       ({
@@ -26,17 +26,17 @@ export class VoteFormComponent implements OnInit {
   }
   vote(id: any, option: any) {
     this._userservice.vote(id, this.voteForm.get('options').value);
-    this._userservice.view();
-    setTimeout(()=>{
-      this._userservice.summary(id).subscribe((data)=>{console.log(data.json())
-      this.data=data.json();
-      this.formData.options=this.data['data'].options;
-    });
+    setTimeout(() => {
+      this._userservice.summary(id).subscribe((data) => {
+        console.log(data.json())
+        this.data = data.json();
+        this.formData.options = this.data['data'].options;
+      });
       console.log(this._userservice.summary(id));
-    },1000)
+    }, 500)
 
     this.visible = true;
 
   }
-
+  
 }

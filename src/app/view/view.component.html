@@ -1,12 +1,15 @@
-<ol type="1">
+<ol class="view" type="1">
   <div *ngFor="let data of data">
-    <div>
-      <li>
-        <label>{{data.title}}</label>
-        <ol type="a" class="list-group list-inline">
+    <div >
+      <li class="listmain">
+        <label >{{data.title}}</label>
+        <div class="deletediv"><a (click)="delete(data._id)">Delete Poll</a>
+</div>
+
+        <ol type="a" class="">
           <div *ngFor="let option of data.options">
-            <li class="list-inline-items">
-              <div class="col-xs-3">{{option.option}}</div>
+            <li>
+              <div>{{option.option}}</div>
             </li>
           </div>
         </ol>

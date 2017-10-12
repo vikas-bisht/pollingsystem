@@ -39,9 +39,11 @@ export class CreateComponent implements OnInit {
     if (this.PollCreationForm.valid) {
       this._userservice.create(this.PollCreationForm.value)
         .subscribe(data => {
+          console.log(this.PollCreationForm.value)
           if (data.error == 0) {
             alert("Data Entered Successfully");
             this._router.navigate(['/home'])
+            console.log(data)
           }
         },
         error => { })

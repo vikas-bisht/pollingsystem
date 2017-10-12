@@ -1,19 +1,22 @@
 <div class="container">
-  <div align="center" class="row"><h1>Welcome User</h1>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-      <div class="sidebar-nav">
-        <ul class="nav nav-list">
-          <li class="nav-header"> Menu</li>
-          <li><a routerLink="create">Create a Poll</a></li>
-          <li><a (click)="view()" routerLink="view">View all polls</a></li>
-          <li><a (click)="take()" routerLink="take">Take a Poll</a></li>
-        </ul>
+  <nav class="navbar navbar-inverse doc-nav">
+    <div align="center" class="row">
+      <h1 class="nav-brand header">Welcome User</h1>
+    </div>
+  </nav>
+    <div class="row">
+      <div class=" col-xs-3 well">
+        <div class="sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header"> Menu</li>
+            <li><a routerLink="create">Create a Poll</a></li>
+            <li><a (click)="view()" routerLink="view">View all polls</a></li>
+            <li><a (click)="take()" routerLink="take">Take a Poll</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-offset-1 col-xs-8">
+        <router-outlet></router-outlet>
       </div>
     </div>
-    <div class="col-xs-9">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
 </div>

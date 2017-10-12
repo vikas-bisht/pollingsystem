@@ -4,7 +4,7 @@ import {ProgressBarModule} from 'ngx-progress-bar';
 import { NglModule } from 'ng-lightning/ng-lightning';
 
 @Component({
-  selector: 'pollingsystem',
+  selector: 'app-pollingsystem',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -16,7 +16,6 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this._loaderService.loaderStatus.subscribe((val:boolean)=>{
     this.objLoaderStatus=val;
-      console.log(val);
     });
   }
 }
