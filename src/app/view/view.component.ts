@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,FormBuilder,FormGroup, FormControl} from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ViewService } from './view.service';
 import { UserService } from '../user.service';
@@ -13,9 +14,11 @@ import { UserService } from '../user.service';
 
 export class ViewComponent {
   data: any;
-  editTitleForm: FormGroup;
+  editData: any;
+  changeTitleForm: FormGroup;
 
   constructor(
+    private _router:Router,
     private _viewService: ViewService,
     private _userservice: UserService,
     private _formBuilder: FormBuilder
@@ -24,21 +27,28 @@ export class ViewComponent {
   ngOnInit() {
     this._viewService.view().subscribe(data => {
       this.data = data.data
-    });
-    this.editTitleForm = this._formBuilder.group({
-      title:[null,[Validators.required]]
     })
+      this.changeTitleForm = this._formBuilder.group({
+        title : [null, [Validators.required]]
+       });
+
   }
   delete(id: any) {
     this._userservice.delete(id).subscribe((data => { }))
-    this._viewService.view().subscribe(data=>{
-      this.data=data.data
+    this._viewService.view().subscribe(data => {
+      this.data = data.data
     });
   }
-  editTitle(id:any,title:any){
-    this._userservice.editTitle(id,title).subscribe((data)=>{console.log(data)})
-    this._viewService.view().subscribe(data=>{
-      this.data=data
-    })
+  editTitle(id:any) {
+    this._userservice.summary(id).subscribe(data =>{console.log( this.editData=data.json())})
+
+  }
+  changeTitle(id,title){
+    console.log("fgadf");
+    console.log("click");
+    this._userservice.editTitle(id,title).subscribe((data) => { console.log(data) })
+    // this._viewService.view().subscribe(data => {
+    //   this.data = data
+    // })
   }
 }

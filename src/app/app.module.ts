@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { CreateComponent } from './create/create.component';
 import { LoginComponent } from './login/login.component';
 import { ViewComponent } from './view/view.component';
+
 import { TakeComponent } from './take/take.component';
 import { VoteFormComponent } from './take/voteform.component';
 import { HomeComponent } from './home/home.component';

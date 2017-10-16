@@ -38,5 +38,5 @@ export class VoteFormComponent implements OnInit {
     this.visible = true;
 
   }
-  
+
 }
