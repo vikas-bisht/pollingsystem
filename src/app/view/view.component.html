@@ -1,7 +1,7 @@
 <ol class="view" type="1">
   <div *ngFor="let data of data">
     <div class="modal fade" id="myModal" role="dialog">
-      <form class="form-horizontal" (ngSubmit)="changeTitle(editData.data.title)" [formGroup]="changeTitleForm" novalidate>
+      <form class="form-horizontal" (ngSubmit)="changeTitle(editData.data._id,editData.data.title)" [formGroup]="changeTitleForm" novalidate>
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -12,7 +12,7 @@
               <input *ngIf="editData" class="form-control" type="text" [(ngModel)]="editData.data.title" name="title" formControlName="title" required/>
             </div>
             <div class="modal-footer">
-              <button type="submit" [disabled]="!changeTitleForm.valid" class="btn btn-default" >Submit</button>
+              <button type="submit" [disabled]="!changeTitleForm.valid" class="btn btn-default">Submit</button>
             </div>
           </div>
         </div>

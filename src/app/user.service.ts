@@ -52,6 +52,9 @@ export class UserService {
   }
   editTitle(id:any,title:any){
     return this._http.get(this._url+`update_poll_title?id=${id}&title=${title}`)
+    .map((res:any)=>{
+      return res.json();
+    })
   }
 
   logout() {

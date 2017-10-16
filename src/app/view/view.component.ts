@@ -43,12 +43,10 @@ export class ViewComponent {
     this._userservice.summary(id).subscribe(data =>{console.log( this.editData=data.json())})
 
   }
-  changeTitle(id,title){
-    console.log("fgadf");
-    console.log("click");
-    this._userservice.editTitle(id,title).subscribe((data) => { console.log(data) })
-    // this._viewService.view().subscribe(data => {
-    //   this.data = data
-    // })
+  changeTitle(id:any,title:any){
+    this._userservice.editTitle(id,title).subscribe((data) =>{ })
+     this._viewService.view().subscribe((data)=>{
+       this.data=data.data
+     })
   }
 }
