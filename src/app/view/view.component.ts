@@ -18,6 +18,7 @@ export class ViewComponent {
   editData: any;
   changeTitleForm: FormGroup;
   newOptionForm: FormGroup;
+  editOptionForm:FormGroup;
 
   constructor(
     private _router: Router,
@@ -36,6 +37,9 @@ export class ViewComponent {
     this.newOptionForm = this._formBuilder.group({
       option: [null, [Validators.required]]
     });
+    this.editOptionForm=this._formBuilder.group({
+      editoption:[null,[Validators.required]]
+    })
 
   }
   delete(id: any) {
@@ -67,5 +71,13 @@ export class ViewComponent {
     this._viewService.view().subscribe((data) => {
       this.data = data.data
     })
+  }
+  editOption(id:any,oldoption:any,newoption:any){
+    console.log(id,oldoption,newoption)
+    this._userservice.editOption(id,oldoption,newoption.editoption).subscribe((data)=>{console.log(data)})
+    this._viewService.view().subscribe((data) => {
+      this.data = data.data
+    })
+      this.editOptionForm.reset();
   }
 }

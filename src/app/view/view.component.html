@@ -26,10 +26,37 @@
         <ol type="a">
           <div *ngFor="let option of data.options">
             <li>
-              <div >{{option.option}}<a (click)="deleteOption(data._id,option.option)"><span class="glyphicon glyphicon-remove"></span></a></div>
+              <div>{{option.option}}
+                <button (click)="editOptionModal.open()" class="btn btn-link">(edit Option)</button>
+                <a (click)="deleteOption(data._id,option.option)"><span class="glyphicon glyphicon-remove"></span></a>
+
+
+
+              </div>
+
             </li>
+            <div class="row">
+              <form class="form-horizontal" (ngSubmit)="editOption(data._id,option.option,editOptionForm.value)" [formGroup]="editOptionForm" novalidate>
+                <modal #editOptionModal (onSubmit)="editOption(data._id,option.option,editOptionForm.value)">
+                  <modal-header>
+                    <h4 class="modal-title">Enter New Option</h4>
+                  </modal-header>
+                  <modal-content>
+                    <input class="form-control" type="text" name="editoption" placeholder="{{option.option}}" formControlName="editoption" required/>
+                  </modal-content>
+                  <modal-footer>
+                    <button type="submit" [disabled]="!editOptionForm.valid" class="btn btn-success">Edit</button>
+                    <button class="btn btn-primary" (click)="editOptionModal.close()">close</button>
+                  </modal-footer>
+                </modal>
+              </form>
+            </div>
+
+
+
           </div>
           <button type="button" (click)="optionModal.open()" class="btn btn-link">add new option</button>
+
           <div class="row">
             <form class="form-horizontal" (ngSubmit)="newopt(data._id,newOptionForm.value)" [formGroup]="newOptionForm" novalidate>
               <modal #optionModal (onSubmit)="newopt(data._id,newOptionForm.value)">
@@ -37,7 +64,7 @@
                   <h4 class="modal-title">Enter New Title</h4>
                 </modal-header>
                 <modal-content>
-                  <input class="form-control" type="text" name="option" formControlName="option" required/>
+                  <input class="form-control" type="text" name="option"  formControlName="option" required/>
                 </modal-content>
                 <modal-footer>
                   <button type="submit" [disabled]="!newOptionForm.valid" class="btn btn-success">Submit</button>
@@ -46,6 +73,7 @@
               </modal>
             </form>
           </div>
+
         </ol>
       </li>
     </div>
