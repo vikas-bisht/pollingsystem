@@ -61,4 +61,11 @@ export class ViewComponent {
     })
     this.newOptionForm.reset();
   }
+  deleteOption(id: any, optionName: any) {
+    console.log(id, optionName)
+    this._userservice.deleteOption(id, optionName).subscribe((data => { }))
+    this._viewService.view().subscribe((data) => {
+      this.data = data.data
+    })
+  }
 }

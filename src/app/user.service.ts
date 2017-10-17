@@ -59,6 +59,9 @@ export class UserService {
   newOption(id:any,option:any){
     return this._http.get(this._url+`add_new_option?id=${id}&option_text=${option}`)
   }
+  deleteOption(id:any,optionName:any){
+    return this._http.get(this._url+`delete_poll_option?id=${id}&option_text=${optionName}`)
+  }
 
   logout() {
     localStorage.removeItem('currentUser');

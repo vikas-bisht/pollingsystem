@@ -26,7 +26,7 @@
         <ol type="a">
           <div *ngFor="let option of data.options">
             <li>
-              <div>{{option.option}}</div>
+              <div >{{option.option}}<a (click)="deleteOption(data._id,option.option)"><span class="glyphicon glyphicon-remove"></span></a></div>
             </li>
           </div>
           <button type="button" (click)="optionModal.open()" class="btn btn-link">add new option</button>
