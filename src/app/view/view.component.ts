@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalModule } from 'ng2-modal';
 
 import { ViewService } from './view.service';
 import { UserService } from '../user.service';

@@ -5,6 +5,7 @@ import { NglModule } from 'ng-lightning/ng-lightning';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { ModalModule } from 'ng2-modal'
 import { MyDatePickerModule } from 'mydatepicker';
 
 import { AppComponent } from './app.component';
@@ -27,7 +28,7 @@ import { DisplayErrorComponent } from './display-error/display-error.component';
     AppComponent, RegisterComponent, LoginComponent, HomeComponent,VoteFormComponent, CreateComponent,ViewComponent, TakeComponent, DisplayErrorComponent
   ],
   imports: [
-    MyDatePickerModule,ProgressBarModule, NglModule, BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpModule
+    MyDatePickerModule,ModalModule,ProgressBarModule, NglModule, BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpModule
   ],
   entryComponents: [RegisterComponent],
   providers: [LoaderService,ViewService, UserService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
