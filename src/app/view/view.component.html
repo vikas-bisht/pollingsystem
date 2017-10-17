@@ -21,14 +21,30 @@
       <li class="listmain">
         <label>{{data.title}}</label>
         <button (click)="myModal.open()" class="btn btn-link">Edit Title</button>
-        <button type="button" class="btn btn-link">new option</button>
-        <div class="deletediv"><a (click)="delete(data._id)">Delete Poll</a>
+        <div class="deletediv"><button class="btn btn-link" (click)="delete(data._id)">Delete Poll</button>
         </div>
         <ol type="a">
           <div *ngFor="let option of data.options">
             <li>
               <div>{{option.option}}</div>
             </li>
+          </div>
+          <button type="button" (click)="optionModal.open()" class="btn btn-link">add new option</button>
+          <div class="row">
+            <form class="form-horizontal" (ngSubmit)="newopt(data._id,newOptionForm.value)" [formGroup]="newOptionForm" novalidate>
+              <modal #optionModal (onSubmit)="newopt(data._id,newOptionForm.value)">
+                <modal-header>
+                  <h4 class="modal-title">Enter New Title</h4>
+                </modal-header>
+                <modal-content>
+                  <input class="form-control" type="text" name="option" formControlName="option" required/>
+                </modal-content>
+                <modal-footer>
+                  <button type="submit" [disabled]="!newOptionForm.valid" class="btn btn-success">Submit</button>
+                  <button class="btn btn-primary" (click)="optionModal.close()">close</button>
+                </modal-footer>
+              </modal>
+            </form>
           </div>
         </ol>
       </li>

@@ -56,6 +56,9 @@ export class UserService {
       return res.json();
     })
   }
+  newOption(id:any,option:any){
+    return this._http.get(this._url+`add_new_option?id=${id}&option_text=${option}`)
+  }
 
   logout() {
     localStorage.removeItem('currentUser');
