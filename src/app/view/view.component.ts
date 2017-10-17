@@ -17,9 +17,10 @@ export class ViewComponent {
   data: any;
   editData: any;
   changeTitleForm: FormGroup;
+  newOptionForm: FormGroup;
 
   constructor(
-    private _router:Router,
+    private _router: Router,
     private _viewService: ViewService,
     private _userservice: UserService,
     private _formBuilder: FormBuilder
@@ -29,9 +30,12 @@ export class ViewComponent {
     this._viewService.view().subscribe(data => {
       this.data = data.data
     })
-      this.changeTitleForm = this._formBuilder.group({
-        title : [null, [Validators.required]]
-       });
+    this.changeTitleForm = this._formBuilder.group({
+      title: [null, [Validators.required]]
+    });
+    this.newOptionForm = this._formBuilder.group({
+      option: [null, [Validators.required]]
+    });
 
   }
   delete(id: any) {
@@ -40,14 +44,21 @@ export class ViewComponent {
       this.data = data.data
     });
   }
-  editTitle(id:any) {
-    this._userservice.summary(id).subscribe(data =>{console.log( this.editData=data.json())})
+  editTitle(id: any) {
+    this._userservice.summary(id).subscribe(data => { console.log(this.editData = data.json()) })
 
   }
-  changeTitle(id:any,title:any){
-    this._userservice.editTitle(id,title).subscribe((data) =>{ })
-     this._viewService.view().subscribe((data)=>{
-       this.data=data.data
-     })
+  changeTitle(id: any, title: any) {
+    this._userservice.editTitle(id, title).subscribe((data) => { })
+    this._viewService.view().subscribe((data) => {
+      this.data = data.data
+    })
+  }
+  newopt(id: any, option: any) {
+    this._userservice.newOption(id, option.option).subscribe((data) => { console.log(data) })
+    this._viewService.view().subscribe((data) => {
+      this.data = data.data
+    })
+    this.newOptionForm.reset();
   }
 }
