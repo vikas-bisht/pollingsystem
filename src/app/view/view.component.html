@@ -1,12 +1,30 @@
 <ol class="view" type="1">
   <div *ngFor="let data of data">
-    <div >
-      <li class="listmain">
-        <label >{{data.title}}</label>
-        <div class="deletediv"><a (click)="delete(data._id)">Delete Poll</a>
-</div>
 
-        <ol type="a" class="">
+    <div class="row">
+      <form class="form-horizontal" (ngSubmit)="changeTitle(editData.data._id,editData.data.title)" [formGroup]="changeTitleForm" novalidate>
+        <modal #myModal (onOpen)="editTitle(data._id)" (onSubmit)="changeTitle(editData.data._id,editData.data.title)">
+          <modal-header>
+            <h4 class="modal-title">Enter New Title</h4>
+          </modal-header>
+          <modal-content>
+            <input *ngIf="editData" class="form-control" type="text" [(ngModel)]="editData.data.title" name="title" formControlName="title" required/>
+          </modal-content>
+          <modal-footer>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button class="btn btn-primary" (click)="myModal.close()">close</button>
+          </modal-footer>
+        </modal>
+      </form>
+    </div>
+    <div>
+      <li class="listmain">
+        <label>{{data.title}}</label>
+        <button (click)="myModal.open()" class="btn btn-link">Edit Title</button>
+        <button type="button" class="btn btn-link">new option</button>
+        <div class="deletediv"><a (click)="delete(data._id)">Delete Poll</a>
+        </div>
+        <ol type="a">
           <div *ngFor="let option of data.options">
             <li>
               <div>{{option.option}}</div>
