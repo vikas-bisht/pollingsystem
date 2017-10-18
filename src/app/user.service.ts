@@ -30,8 +30,9 @@ export class UserService {
       });
   }
   create(poll: any) {
-    return this._http.get(this._url + `add_poll?title=${poll.title}&options=${poll.option1}____${poll.option2}____${poll.option3}____${poll.option4}`)
+    return this._http.get(this._url + `add_poll?title=${poll.title}&options=${poll.option1}____${poll.option2}____${poll.option3}____${poll.option4}&date=${poll.myDate.formatted}`)
       .map((res: any) => {
+        console.log(res)
         return res.json();
       })
   }
@@ -61,6 +62,9 @@ export class UserService {
   }
   deleteOption(id:any,optionName:any){
     return this._http.get(this._url+`delete_poll_option?id=${id}&option_text=${optionName}`)
+  }
+  editOption(id:any,oldOption:any,newOption:any){
+    return this._http.get(this._url+`update_poll_option?id=${id}&old_option=${oldOption}&option_text=${newOption}`)
   }
 
   logout() {
