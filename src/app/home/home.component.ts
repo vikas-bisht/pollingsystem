@@ -12,6 +12,7 @@ import { ViewService } from '../view/view.service';
 export class HomeComponent implements OnInit {
 
   constructor(
+    private _router:Router,
     private _viewService: ViewService
   ) {
 

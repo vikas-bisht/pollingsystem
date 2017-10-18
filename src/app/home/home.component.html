@@ -17,6 +17,15 @@
         </div>
       </div>
       <div class="col-xs-offset-1 col-xs-8">
+        <div *ngIf="_router.url==='/home'">
+            <div class="row">My DashBoard
+            </div>
+            <div class="row">
+              <div class="col-xs-3 votediv">heelo</div>
+              <div class="col-xs-offset-1 col-xs-3 second">hello</div>
+              <div class=" col-xs-offset-1 col-xs-3 third">hello</div>
+            </div>
+        </div>
         <router-outlet></router-outlet>
       </div>
     </div>

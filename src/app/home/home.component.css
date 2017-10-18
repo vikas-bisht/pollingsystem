@@ -2,3 +2,14 @@
   background-color:#563d7c;
   color: white
 }
+.votediv{
+  background-color: red;
+}
+.second{
+    background-color: green;
+
+}
+.third{
+    background-color: lightblue;
+
+}
