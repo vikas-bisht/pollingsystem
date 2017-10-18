@@ -39,7 +39,7 @@
               <form class="form-horizontal" (ngSubmit)="editOption(data._id,option.option,editOptionForm.value)" [formGroup]="editOptionForm" novalidate>
                 <modal #editOptionModal (onSubmit)="editOption(data._id,option.option,editOptionForm.value)">
                   <modal-header>
-                    <h4 class="modal-title">Enter New Option</h4>
+                    <h4 class="modal-title">Enter New Option Name</h4>
                   </modal-header>
                   <modal-content>
                     <input class="form-control" type="text" name="editoption" placeholder="{{option.option}}" formControlName="editoption" required/>
@@ -61,7 +61,7 @@
             <form class="form-horizontal" (ngSubmit)="newopt(data._id,newOptionForm.value)" [formGroup]="newOptionForm" novalidate>
               <modal #optionModal (onSubmit)="newopt(data._id,newOptionForm.value)">
                 <modal-header>
-                  <h4 class="modal-title">Enter New Title</h4>
+                  <h4 class="modal-title">Enter New Option</h4>
                 </modal-header>
                 <modal-content>
                   <input class="form-control" type="text" name="option" formControlName="option" required/>

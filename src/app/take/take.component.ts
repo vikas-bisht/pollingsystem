@@ -23,7 +23,7 @@ export class TakeComponent {
    }
   ngOnInit() {
     this._viewService.view().subscribe(data => {
-      this.data = data.data
+      this.data = data.data.reverse();
     })
     this.voteForm = new FormGroup
      ({

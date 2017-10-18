@@ -7,6 +7,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { ModalModule } from 'ng2-modal'
 import { MyDatePickerModule } from 'mydatepicker';
+import { MomentModule } from 'angular2-moment';
+import {MatRadioModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -28,10 +30,10 @@ import { DisplayErrorComponent } from './display-error/display-error.component';
     AppComponent, RegisterComponent, LoginComponent, HomeComponent,VoteFormComponent, CreateComponent,ViewComponent, TakeComponent, DisplayErrorComponent
   ],
   imports: [
-    MyDatePickerModule,ModalModule,ProgressBarModule, NglModule, BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpModule
+    MyDatePickerModule,MatRadioModule ,MomentModule ,ModalModule,ProgressBarModule, NglModule, BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpModule
   ],
   entryComponents: [RegisterComponent],
-  providers: [LoaderService,ViewService, UserService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [LoaderService,ViewService, UserService,{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

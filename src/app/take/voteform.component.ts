@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {MatRadioModule} from '@angular/material';
+
 
 import { UserService } from '../user.service';
 
@@ -11,17 +13,20 @@ import { UserService } from '../user.service';
 
 export class VoteFormComponent implements OnInit {
   @Input() formData: any;
+  myDate:Date;
   public visible = false;
   voteForm: FormGroup;
   data: any;
   constructor(
     private _userservice: UserService,
-  ) { }
+  ) {
+    this.myDate=new Date()
+console.log(this.myDate)
+  }
   ngOnInit() {
     this.voteForm = new FormGroup
       ({
         options: new FormControl('', Validators.required)
-
       })
   }
   vote(id: any, option: any) {
