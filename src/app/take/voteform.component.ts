@@ -36,6 +36,7 @@ export class VoteFormComponent implements OnInit {
     }, 500)
 
     this.visible = true;
+    this.voteForm.disable();
 
   }
 
