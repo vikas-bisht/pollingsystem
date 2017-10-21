@@ -21,13 +21,16 @@ export class VoteFormComponent implements OnInit {
     private _userservice: UserService,
   ) {
     this.myDate=new Date()
-console.log(this.myDate)
   }
   ngOnInit() {
     this.voteForm = new FormGroup
       ({
         options: new FormControl('', Validators.required)
       })
+      if(this.myDate>this.formData.date){
+
+
+      }
   }
   vote(id: any, option: any) {
     this._userservice.vote(id, this.voteForm.get('options').value);

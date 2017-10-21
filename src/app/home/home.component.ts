@@ -10,16 +10,20 @@ import { ViewService } from '../view/view.service';
 })
 
 export class HomeComponent implements OnInit {
-
+data:any;
   constructor(
     private _router:Router,
     private _viewService: ViewService
   ) {
 
   }
-  ngOnInit() { }
+  ngOnInit() {
+  this.view().subscribe(data=>
+    this.data=data.data.reverse()
+)
+ }
   view() {
-    this._viewService.view();
+  return  this._viewService.view();
   }
   take(){
     this._viewService.view();

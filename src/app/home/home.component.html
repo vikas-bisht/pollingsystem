@@ -4,29 +4,62 @@
       <h1 class="nav-brand header">Welcome User</h1>
     </div>
   </nav>
-    <div class="row">
-      <div class=" col-xs-3 well">
+  <div class="row">
+    <div class=" col-xs-4 ">
+      <div class="col-xs-12 well">
         <div class="sidebar-nav">
           <ul class="nav nav-list">
             <li class="nav-header"> Menu</li>
             <li><a routerLink="create">Create a Poll</a></li>
             <li><a (click)="view()" routerLink="view">View all polls</a></li>
             <li><a (click)="take()" routerLink="take">Take a Poll</a></li>
-            <li><a href="#" routerLink="">Log Out<span class="glyphicon glyphicon-off"></span></a></li>
+            <li><a href="#" routerLink="">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
           </ul>
         </div>
       </div>
-      <div class="col-xs-offset-1 col-xs-8">
-        <div *ngIf="_router.url==='/home'">
-            <div class="row">My DashBoard
-            </div>
-            <div class="row">
-              <div class="col-xs-3 votediv">heelo</div>
-              <div class="col-xs-offset-1 col-xs-3 second">hello</div>
-              <div class=" col-xs-offset-1 col-xs-3 third">hello</div>
-            </div>
-        </div>
-        <router-outlet></router-outlet>
-      </div>
     </div>
+    <div class="col-xs-8">
+      <div class="col-xs-12">
+        <div *ngIf="_router.url==='/home'">
+
+          <div class="row info">
+            <div class="col-xs-4">
+              <div class="col-xs-12 create">
+                <h3 align="center"><b>Create poll</b></h3>
+                <div align="center"><span align="center" class="glyphicon glyphicon-plus-sign icons"></span></div>
+                <ul>
+                  <li>User can add a new poll.</li>
+                  <li>User ca add a datepicker to define a specific validity of poll.</li>
+                  <li>after that date passed no one can take that poll.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="col-xs-12 view">
+                <h3 align="center"><b>View Polls</b></h3>
+                <div align="center"><span class="glyphicon glyphicon-list-alt icons"></span></div>
+                <ul>
+                  <li>Here user can see all the polls created by different user.</li>
+                  <li>User can do different thing like: editing the title,deleting poll and many more things.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="col-xs-12 take">
+                <h3 align="center"><b>Take A Poll</b></h3>
+                <div align="center"><span class="glyphicon glyphicon-hand-up icons"></span></div>
+                <ul>
+                  <li>Here user can take poll.</li>
+                  <li>User can give only one unique answer for a single poll.</li>
+                  <li>User will se a summary of anwer when he ll give that poll.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

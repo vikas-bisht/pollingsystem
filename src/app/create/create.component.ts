@@ -42,7 +42,7 @@ export class CreateComponent implements OnInit {
           console.log(this.PollCreationForm.value)
           if (data.error == 0) {
             alert("Data Entered Successfully");
-            this._router.navigate(['/home'])
+            this._router.navigate(['/home/view'])
             console.log(data)
           }
         },

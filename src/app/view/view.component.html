@@ -1,4 +1,4 @@
-<ol class="view" type="1">
+<ol  type="1">
   <div *ngFor="let data of data">
 
     <div class="row">
@@ -23,15 +23,12 @@
         <button (click)="myModal.open()" class="btn btn-link">Edit Title</button>
         <div class="deletediv"><button class="btn btn-link" (click)="delete(data._id)">Delete Poll</button>
         </div>
-        <ol type="a">
+        <ol class="view" type="a">
           <div *ngFor="let option of data.options">
             <li>
               <div>{{option.option}}
                 <button (click)="editOptionModal.open()" class="btn btn-link">(edit Option)</button>
                 <a (click)="deleteOption(data._id,option.option)"><span class="glyphicon glyphicon-remove"></span></a>
-
-
-
               </div>
 
             </li>
