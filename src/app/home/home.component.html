@@ -1,24 +1,24 @@
-<div class="container">
+<div>
   <nav class="navbar navbar-inverse doc-nav">
-    <div align="center" class="row">
+    <div align="center">
       <h1 class="nav-brand header">Welcome User</h1>
     </div>
   </nav>
-  <div class="row">
-    <div class=" col-xs-4 ">
-      <div class="col-xs-12 well">
+  <div>
+    <div class=" col-xs-3 ">
+      <div class="col-xs-12 well sidesticky">
         <div class="sidebar-nav">
           <ul class="nav nav-list">
             <li class="nav-header"> Menu</li>
             <li><a routerLink="create">Create a Poll</a></li>
             <li><a (click)="view()" routerLink="view">View all polls</a></li>
             <li><a (click)="take()" routerLink="take">Take a Poll</a></li>
-            <li><a href="#" routerLink="">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
+            <li><a href="#" (click)="logout()">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-xs-8">
+    <div class="col-xs-9">
       <div class="col-xs-12">
         <div *ngIf="_router.url==='/home'">
 
@@ -29,7 +29,7 @@
                 <div align="center"><span align="center" class="glyphicon glyphicon-plus-sign icons"></span></div>
                 <ul>
                   <li>User can add a new poll.</li>
-                  <li>User ca add a datepicker to define a specific validity of poll.</li>
+                  <li>User can add a datepicker to define a specific validity of poll.</li>
                   <li>after that date passed no one can take that poll.</li>
                 </ul>
               </div>
@@ -56,8 +56,13 @@
               </div>
             </div>
           </div>
-        </div>
 
+          <div class="totalpolls">
+            <div>total poll question:<b>{{data.length}}</b></div>
+          </div>
+
+
+        </div>
       </div>
       <router-outlet></router-outlet>
     </div>

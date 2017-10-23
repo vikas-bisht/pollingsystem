@@ -16,19 +16,31 @@
 }
 
 .create {
+  background-color: wheat;
   border: 1px solid grey;
+  border-radius: 20px;
 }
 
 .view {
+  background-color: seashell;
   border: 1px solid grey;
+  border-radius: 20px;
 }
 
 .take {
+  background-color: thistle;
   border: 1px solid grey;
+  border-radius: 20px;
 }
-.info{
+
+.info {
   margin-top: 20px;
 }
-.icons{
+
+.icons {
   font-size: 50px;
+}
+
+.totalpolls {
+  margin-top: 50px;
 }

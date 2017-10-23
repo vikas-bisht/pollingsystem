@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css']
+  styleUrls: ['./view.component.css'],
 })
 
 export class ViewComponent {

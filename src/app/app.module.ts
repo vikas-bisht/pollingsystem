@@ -22,7 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './user.service';
 import { ViewService } from './view/view.service';
-import { LoaderService } from './loader.service';
+//import { AuthGuard } from './auth.guard';
 import { DisplayErrorComponent } from './display-error/display-error.component';
 
 @NgModule({
@@ -33,7 +33,7 @@ import { DisplayErrorComponent } from './display-error/display-error.component';
     MyDatePickerModule,MatRadioModule ,MomentModule ,ModalModule,ProgressBarModule, NglModule, BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, HttpModule
   ],
   entryComponents: [RegisterComponent],
-  providers: [LoaderService,ViewService, UserService,{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [ViewService, UserService,{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

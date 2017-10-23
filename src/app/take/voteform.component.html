@@ -9,7 +9,7 @@
   <div class="row well">
 
     <div class="col-xs-4">
-      <div class="radio " *ngFor="let option of formData.options;">
+      <div class="radio" *ngFor="let option of formData.options;">
         <input type="radio" formControlName="options" value={{option.option}} /> {{option.option}}
       </div>
     </div>

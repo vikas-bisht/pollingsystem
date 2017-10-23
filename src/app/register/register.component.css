@@ -1,38 +1,23 @@
 
-body{
- 	background-color: #563d7c;
-  margin:0;
-}
 .main{
-  padding : 3.5%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.loader{
-  width:60px;
-height: auto;
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: slategrey;
 }
-
-.panel-default {
-opacity: 0.9;
-margin-top:30px;
+.panel{
+    padding: 0 24px 20px 24px;
+    max-width: 400px;
 }
-.form-group.last { margin-bottom:0px; }
-
-.main-login{
- 	background-color: #fff;
-    /* shadows and rounded borders */
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-
-
-}
-
-.main-center{
- 	margin-top:  200px;
- 	margin: 0 auto;
- 	max-width: 430px;
-  padding: 20px 50px;
+.loader {
+  width: 60px;
+  height: auto;
 }

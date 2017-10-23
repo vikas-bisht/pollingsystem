@@ -29,6 +29,7 @@
     "mydatepicker": "^2.0.31",
     "ng-lightning": "^2.0.1",
     "ng2-modal": "0.0.25",
+    "ng2-pagination": "^2.0.2",
     "ngx-progress-bar": "0.0.10",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
