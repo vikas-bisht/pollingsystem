@@ -1,7 +1,7 @@
 <form class="view" [formGroup]="voteForm" (ngSubmit)="vote(formData._id,formData.option)" novalidate>
 
   <div>
-    <h1 class="title">{{formData.title}}
+    <h1 class="title">{{formData.title}} <a> {{formData.date}}</a>
     </h1>
 
   </div>
@@ -9,7 +9,7 @@
   <div class="row well">
 
     <div class="col-xs-4">
-      <div class="radio " *ngFor="let option of formData.options;">
+      <div class="radio" *ngFor="let option of formData.options;">
         <input type="radio" formControlName="options" value={{option.option}} /> {{option.option}}
       </div>
     </div>
@@ -27,3 +27,4 @@
     </div>
   </div>
 </form>
+Last updated: {{mydate | amLocal | amDateFormat: 'DD.MM.YYYY'}}

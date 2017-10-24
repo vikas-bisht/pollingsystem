@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css']
+  styleUrls: ['./view.component.css'],
 })
 
 export class ViewComponent {
@@ -29,7 +29,7 @@ export class ViewComponent {
   }
   ngOnInit() {
     this._viewService.view().subscribe(data => {
-      this.data = data.data
+      this.data = data.data.reverse();
     })
     this.changeTitleForm = this._formBuilder.group({
       title: [null, [Validators.required]]
@@ -45,7 +45,7 @@ export class ViewComponent {
   delete(id: any) {
     this._userservice.delete(id).subscribe((data => { }))
     this._viewService.view().subscribe(data => {
-      this.data = data.data
+      this.data = data.data.reverse();
     });
   }
   editTitle(id: any) {
@@ -55,13 +55,13 @@ export class ViewComponent {
   changeTitle(id: any, title: any) {
     this._userservice.editTitle(id, title).subscribe((data) => { })
     this._viewService.view().subscribe((data) => {
-      this.data = data.data
+      this.data = data.data.reverse();
     })
   }
   newopt(id: any, option: any) {
     this._userservice.newOption(id, option.option).subscribe((data) => { console.log(data) })
     this._viewService.view().subscribe((data) => {
-      this.data = data.data
+      this.data = data.data.reverse();
     })
     this.newOptionForm.reset();
   }
@@ -69,14 +69,14 @@ export class ViewComponent {
     console.log(id, optionName)
     this._userservice.deleteOption(id, optionName).subscribe((data => { }))
     this._viewService.view().subscribe((data) => {
-      this.data = data.data
+      this.data = data.data.reverse();
     })
   }
   editOption(id:any,oldoption:any,newoption:any){
     console.log(id,oldoption,newoption)
     this._userservice.editOption(id,oldoption,newoption.editoption).subscribe((data)=>{console.log(data)})
     this._viewService.view().subscribe((data) => {
-      this.data = data.data
+      this.data = data.data.reverse();
     })
       this.editOptionForm.reset();
   }

@@ -1,77 +1,60 @@
 <body>
-	<div class="container">
-
-		<div>
-			<div class="row main">
-				<div class="main-login main-center">
-					<form class="form-horizontal" (ngSubmit)="register()" [formGroup]="RegistrationForm" novalidate>
-						<div class="panel panel-heading" align="center">
+	<div class="container background">
+		<div class="row main">
+			<div>
+				<form class="form-horizontal" (ngSubmit)="register()" [formGroup]="RegistrationForm" novalidate>
+					<div class="panel">
+						<div class="panel panel-heading">
 							<h3 class="heading"><b>Registration Form</b></h3>
 						</div>
 						<div class="panel-body">
 							<div class="form-group" [ngClass]="displayFieldCss('name')">
-								<label for="name" class="cols-sm-2 control-label required">Your Name</label>
-								<div class="cols-sm-10">
-									<div>
-										<input type="text" class="form-control" formControlName="name" name="name" placeholder="Enter your Name" />
-									</div>
-									<div>
-										<display-error [displayError]="isFieldValid('name')" errorMsg="Please Enter Your Name">
-										</display-error>
-									</div>
+								<div class="cols-sm-12 input-group">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+									<input type="text" class="form-control" formControlName="name" name="name" placeholder="Enter your Name" />
+								</div>
+								<div>
+									<display-error [displayError]="isFieldValid('name')" errorMsg="Please Enter Your Name">
+									</display-error>
 								</div>
 							</div>
 
 							<div class="form-group" [ngClass]="displayFieldCss('username')">
-								<label for="username" class="cols-sm-2 control-label required">Username</label>
-								<div class="cols-sm-10">
-									<div>
-										<input type="text" class="form-control" formControlName="username" name="username" placeholder="Enter your Username" />
-									</div>
-									<div>
-										<display-error [displayError]="isFieldValid('username')" errorMsg="Please Enter Your UserName">
-										</display-error>
-									</div>
-								</div>
-							</div>
 
-							<div class="form-group ">
-								<label for="role" class="cols-sm-2 control-label">Role</label>
-								<div class="cols-sm-10">
-									<div>
-										<select name="role" class="form-control">
-								<option value="admin">Admin</option>
-								<option value="guest">Guest</option>
-							</select>
-									</div>
+								<div class="cols-sm-12 input-group">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+									<input type="text" class="form-control" formControlName="username" name="username" placeholder="Enter your Username" />
+								</div>
+								<div>
+									<display-error [displayError]="isFieldValid('username')" errorMsg="Please Enter Your UserName">
+									</display-error>
 								</div>
 							</div>
 
 							<div class="form-group" [ngClass]="displayFieldCss('password')">
-								<label for="password" class="cols-sm-2 control-label">Password</label>
-								<div class="cols-sm-10">
-									<div>
-										<input type="password" class="form-control" formControlName="password" name="password" placeholder="Enter your Password" required/>
-									</div>
-									<div>
-										<display-error [displayError]="isFieldValid('password')" errorMsg="Please Enter Your Password">
-										</display-error>
-									</div>
+								<div class="cols-sm-12 input-group">
+									<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+									<input type="password" class="form-control" formControlName="password" name="password" placeholder="Enter your Password" required/>
+								</div>
+								<div>
+									<display-error [displayError]="isFieldValid('password')" errorMsg="Please Enter Your Password">
+									</display-error>
 								</div>
 							</div>
-						</div>
-						<div class="panel-footer">
 							<div align="center" class="form-group main-center ">
 								<button type="submit" [disabled]="loading" class="btn btn-success btn-sm login-button" [disabled]="!RegistrationForm.valid"><b>Register</b></button>
 								<img *ngIf="loading" class="loader" src="assets/images/Loading_icon.gif">
 								<button type="reset" class="btn btn-default btn-sm reset-button"><b>Reset</b></button>
 							</div>
-							<div align="center" class="login-register">
-								<a [routerLink]="['/login']"><b>Login</b></a>
+						</div>
+						<div class="panel-footer">
+
+							<div class="login-register">
+								Already Registered? <a [routerLink]="['/login']"><b>Login</b></a>
 							</div>
 						</div>
-					</form>
-				</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

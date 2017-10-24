@@ -5,7 +5,6 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 
 import { User } from '../user';
 import { UserService } from '../user.service';
-import { LoaderService } from '../loader.service';
 import { DisplayErrorComponent } from '../display-error/display-error.component';
 
 @Component({
@@ -23,7 +22,6 @@ export class RegisterComponent implements OnInit {
     private _router: Router,
     private _userservice: UserService,
     private _formBuilder: FormBuilder,
-    private _loaderService: LoaderService,
   ) { }
   ngOnInit() {
     this.RegistrationForm = this._formBuilder.group({
@@ -31,8 +29,6 @@ export class RegisterComponent implements OnInit {
       username: [null, [Validators.required, Validators.minLength]],
       password: [null, [Validators.required, Validators.minLength]]
     });
-    this._loaderService.displayLoader(true);
-    this._loaderService.displayLoader(false);
   }
   register() {
     this.loading = true;

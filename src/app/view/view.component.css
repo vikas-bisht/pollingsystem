@@ -1,10 +1,18 @@
-.view{
-  background-color: #f1f1f1;
+.view {
+  background-color: hsla(117, 33%, 62%, 0.57);
+  border-radius: 18px;
+  padding-bottom: 10px;
+  padding-top: 5px;
 }
-.deletediv{
+
+.deletediv {
   float: right;
-  padding-right:10px;
+  padding-right: 10px;
 }
-.listmain{
-  padding:15px 0px;
+
+.listmain {
+  padding: 15px 0px;
+}
+.line{
+  border-color: #bedeb0;
 }

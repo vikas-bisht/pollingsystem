@@ -1,4 +1,46 @@
-.doc-nav{
-  background-color:#563d7c;
+.doc-nav {
+  background-color: #563d7c;
   color: white
+}
+
+.votediv {
+  background-color: red;
+}
+
+.second {
+  background-color: green;
+}
+
+.third {
+  background-color: lightblue;
+}
+
+.create {
+  background-color: wheat;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.view {
+  background-color: seashell;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.take {
+  background-color: thistle;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.info {
+  margin-top: 20px;
+}
+
+.icons {
+  font-size: 50px;
+}
+
+.totalpolls {
+  margin-top: 50px;
 }
