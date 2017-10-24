@@ -1,0 +1,23 @@
+.main {
+  border: 1px solid grey;
+  border-radius: 25px;
+  margin-bottom: 15px;
+}
+
+.options {}
+
+.optiondiv {
+  background-color: rgba(183, 183, 183, 0.53);
+}
+
+.summary {
+  background-color: yellow
+}
+
+.title {
+  padding-left: 35px;
+}
+
+.votebutton {
+  margin: 10px 30px;
+}

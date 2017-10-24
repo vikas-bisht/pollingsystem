@@ -1,30 +1,26 @@
-<form class="view" [formGroup]="voteForm" (ngSubmit)="vote(formData._id,formData.option)" novalidate>
-
-  <div>
-    <h1 class="title">{{formData.title}} <a> {{formData.date}}</a>
+<div class="main">
+  <form class="view" [formGroup]="voteForm" (ngSubmit)="vote(formData._id,formData.option)" novalidate>
+    <div>
+      <h1 class="title">{{formData.title}}
     </h1>
-
-  </div>
-
-  <div class="row well">
-
-    <div class="col-xs-4">
-      <div class="radio" *ngFor="let option of formData.options;">
-        <input type="radio" formControlName="options" value={{option.option}} /> {{option.option}}
-      </div>
     </div>
 
-    <div class="col-xs-4 vote">
-      <input type="submit" value="vote" [disabled]="!voteForm.valid" class="btn btn-success ">
-    </div>
-    <div class="col-xs-4">
-      <div *ngIf="visible">
-        <div align="center"><b>what other thinks</b></div>
-        <div align="center" *ngFor="let option of formData.options">
-          {{option.option}} <span class="badge">{{option.vote}}</span>
+    <div>
+
+      <div class="row">
+        <div *ngFor="let option of formData.options">
+          <div class="row">
+            <div align="right" class="col-xs-2"><input class="options" type="radio" formControlName="options" value={{option.option}} /></div>
+            <div class="col-xs-9"> <div class="col-xs-10 optiondiv">{{option.option}}</div>
+              <div align="center" *ngIf="visible" class="summary">{{option.vote}} votes</div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div class="votebutton">
+        <input type="submit" value="vote" [disabled]="!voteForm.valid" class="btn btn-success votebutton">
+      </div>
     </div>
-  </div>
-</form>
-Last updated: {{mydate | amLocal | amDateFormat: 'DD.MM.YYYY'}}
+  </form>
+</div>

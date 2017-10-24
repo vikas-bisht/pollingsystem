@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
             alert("User Doesn't Exist");
             this.loading = false;
           } else {
-            alert('Login SuccessFull');
             this._router.navigate(['/home']);
             this.loading = false;
           }

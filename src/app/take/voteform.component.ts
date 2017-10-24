@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-voteForm',
   templateUrl: './voteform.component.html',
-  styleUrls: ['./take.component.css']
+  styleUrls: ['./voteform.component.css']
 })
 
 export class VoteFormComponent implements OnInit {
