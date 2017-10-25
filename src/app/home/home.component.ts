@@ -12,9 +12,8 @@ import { UserService } from '../user.service';
 
 export class HomeComponent implements OnInit {
   data: any;
-  length: number;
   constructor(
-    private _router: Router,
+    public _router: Router,
     private _viewService: ViewService,
     private _userService: UserService
   ) {

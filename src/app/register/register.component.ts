@@ -42,7 +42,6 @@ export class RegisterComponent implements OnInit {
             this.RegistrationForm.reset();
           } else {
             this.loading = false;
-            alert('Registration SuccessFull');
             this._router.navigate(['/login']);
           }
         },
