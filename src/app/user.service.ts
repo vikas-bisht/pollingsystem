@@ -24,7 +24,7 @@ export class UserService {
       .map((response: Response) => {
         let user = response.json();
         if (user && user.token) {
-          localStorage.setItem('currentUser', JSON.stringify(user))
+          localStorage.setItem('access_token',user.token)
         }
         return user;
       });
@@ -43,7 +43,11 @@ export class UserService {
       })
   }
   vote(id:string,options:string){
-    return this._http.get(this._url + `do_vote?id=${id}&option_text=${options}`).subscribe(res=>console.log(res),error=>{console.log("error")});
+    var headers= new Headers();
+    let access_token=localStorage.getItem('access_token');
+    headers.append("access_token",access_token);
+    return this._http.get(this._url + `do_vote?id=${id}&option_text=${options}`,{headers:headers}).subscribe(res=>console.log(res),error=>{console.log("error")});
+
   }
   summary(id:string){
     return this._http.get(this._url+  `list_poll?id=${id}`);
@@ -68,6 +72,6 @@ export class UserService {
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('access_token');
   }
 }
