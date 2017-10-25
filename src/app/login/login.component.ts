@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private _userservice: UserService,
     private _formBuilder: FormBuilder,
 
-  ) { this.imgpath = 'assets/images/Loading_icon.gif' }
+  ){}
   ngOnInit() {
     this.LoginForm = this._formBuilder.group({
       username: [null, [Validators.required, Validators.minLength]],
@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
             alert("User Doesn't Exist");
             this.loading = false;
           } else {
-            alert('Login SuccessFull');
             this._router.navigate(['/home']);
             this.loading = false;
           }

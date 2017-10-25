@@ -44,3 +44,10 @@
 .totalpolls {
   margin-top: 50px;
 }
+
+.body {
+position: relative;
+top: 80px;
+}
+.sidebar{
+}

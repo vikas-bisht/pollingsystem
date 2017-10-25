@@ -11,26 +11,27 @@ import { UserService } from '../user.service';
 })
 
 export class HomeComponent implements OnInit {
-data:any;
+  data: any;
+  length: number;
   constructor(
-    private _router:Router,
+    private _router: Router,
     private _viewService: ViewService,
     private _userService: UserService
   ) {
   }
   ngOnInit() {
-  this.view().subscribe(data=>
-    this.data=data.data.reverse()
-)
-this._userService.register(data=>{console.log(data)})
- }
-  view() {
-  return  this._viewService.view();
+    this.view().subscribe(data =>
+      this.data = data.data.reverse()
+    )
+    this._userService.register(data => { console.log(data) })
   }
-  take(){
+  view() {
+    return this._viewService.view();
+  }
+  take() {
     this._viewService.view();
   }
-  logout(){
+  logout() {
     this._userService.logout();
   }
 }

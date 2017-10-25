@@ -1,18 +1,61 @@
 .view {
-  background-color: hsla(117, 33%, 62%, 0.57);
+  background-color: #eaeae1;
   border-radius: 18px;
   padding-bottom: 10px;
   padding-top: 5px;
+  border: 1px solid black;
+  border-top:5px solid green;
+}
+
+.main {
+  padding-bottom: 40px;
 }
 
 .deletediv {
-  float: right;
   padding-right: 10px;
+  color: black;
+  margin-right: 33px;
 }
 
-.listmain {
+.titlelist {
   padding: 15px 0px;
 }
-.line{
-  border-color: #bedeb0;
+
+.title {
+  background-color: white;
+  margin-left: 22px;
+  padding: 1px 15px;
+  width: 80%;
+}
+
+.edit {
+  float: right;
+}
+
+.pencil {
+  margin-right: 15px;
+  color: green;
+}
+
+.option {
+  background-color: white;
+}
+
+.optionlist {
+  padding: 10px;
+}
+
+.add {
+  margin-top: 10px;
+}
+
+.addfont {
+  color: green;
+}
+
+.marginoptions {
+  margin-left: 23px;
+}
+.remove{
+  color: tomato;
 }

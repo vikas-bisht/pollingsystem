@@ -1,0 +1,8 @@
+.main {
+  border: 1px solid grey;
+  border-radius: 25px;
+  padding: 30px 10px;
+}
+.title{
+  margin-bottom: 10px;
+}

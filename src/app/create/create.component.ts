@@ -41,9 +41,7 @@ export class CreateComponent implements OnInit {
         .subscribe(data => {
           console.log(this.PollCreationForm.value)
           if (data.error == 0) {
-            alert("Data Entered Successfully");
             this._router.navigate(['/home/view'])
-            console.log(data)
           }
         },
         error => { })
