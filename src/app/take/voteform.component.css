@@ -1,7 +1,8 @@
 .main {
   border: 1px solid grey;
   border-radius: 25px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  border-top: 3px solid #563d7c;
 }
 
 .options {}
@@ -11,7 +12,7 @@
 }
 
 .summary {
-  background-color: yellow
+  background-color: #0008ff96;
 }
 
 .title {
@@ -20,4 +21,19 @@
 
 .votebutton {
   margin: 10px 30px;
+}
+
+.voteddiv {
+  float: right;
+  background-color: #ff0000c4;
+  color: white;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 25px;
+  padding: 5px;
+}
+
+.optionrow {
+  margin-right: 0px;
+  margin-left: 0px;
 }

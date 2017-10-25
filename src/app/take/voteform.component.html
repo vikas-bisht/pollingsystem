@@ -1,18 +1,21 @@
 <div class="main">
   <form class="view" [formGroup]="voteForm" (ngSubmit)="vote(formData._id,formData.option)" novalidate>
     <div>
-      <h1 class="title">{{formData.title}}
-    </h1>
+      <div class="voteddiv" *ngIf="visible">Voted</div>
+      <div>
+        <h1 class="title">{{formData.title}}</h1>
+      </div>
     </div>
 
     <div>
 
       <div class="row">
         <div *ngFor="let option of formData.options">
-          <div class="row">
+          <div class="row optionrow">
             <div align="right" class="col-xs-2"><input class="options" type="radio" formControlName="options" value={{option.option}} /></div>
-            <div class="col-xs-9"> <div class="col-xs-10 optiondiv">{{option.option}}</div>
-              <div align="center" *ngIf="visible" class="summary">{{option.vote}} votes</div>
+            <div class="col-xs-9">
+              <div class="col-xs-10 optiondiv">{{option.option}}</div>
+              <div align="center" *ngIf="visible" class="summary col-xs-2">{{option.vote}} votes</div>
             </div>
           </div>
         </div>

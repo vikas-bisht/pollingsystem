@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private _userservice: UserService,
     private _formBuilder: FormBuilder,
 
-  ) { this.imgpath = 'assets/images/Loading_icon.gif' }
+  ){}
   ngOnInit() {
     this.LoginForm = this._formBuilder.group({
       username: [null, [Validators.required, Validators.minLength]],

@@ -1,11 +1,11 @@
 <form class="form-horizontal" (ngSubmit)="create()" [formGroup]="PollCreationForm" novalidate>
-  <div>
-    <div align=center class="row">
+  <div class="main">
+    <div class="row">
       <div class="col-xs-offset-1  col-xs-10">
         <div class="form-group" [ngClass]="displayFieldCss('title')">
-          <label class="control-label">
-      Please Enter the title
-    </label>
+          <label class="control-label title">
+            Type your poll question here:
+          </label>
           <input type="text" class="form-control" formControlName="title" required/>
         </div>
         <div class="error">
